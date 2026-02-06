@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* London-inspired design system
+   Mood: historic, foggy, refined, modern
+   All colors are HSL
+*/
+
+@layer base {
+  :root {
+    /* Base surfaces — London fog & stone */
+    --background: 210 15% 92%; /* London Fog Grey */
+    --foreground: 210 15% 15%; /* Charcoal text */
+
+    --card: 210 15% 94%;
+    --card-foreground: 210 15% 15%;
+
+    --popover: 210 15% 94%;
+    --popover-foreground: 210 15% 15%;
+
+    /* Primary — Brick Lane red */
+    --primary: 0 45% 35%;
+    --primary-foreground: 210 15% 95%;
+
+    /* Secondary — Thames blue-green */
+    --secondary: 195 20% 35%;
+    --secondary-foreground: 210 15% 95%;
+
+    /* Muted — weathered stone */
+    --muted: 210 10% 85%;
+    --muted-foreground: 210 10% 40%;
+
+    /* Accent — antique brass */
+    --accent: 35 35% 45%;
+    --accent-foreground: 210 15% 95%;
+
+    /* Destructive */
+    --destructive: 0 65% 45%;
+    --destructive-foreground: 210 15% 95%;
+
+    /* Borders & inputs */
+    --border: 210 10% 75%;
+    --input: 210 10% 85%;
+    --ring: 0 45% 35%;
+
+    --radius: 0.25rem;
+
+    /* Sidebar — underground & slate */
+    --sidebar-background: 210 10% 96%;
+    --sidebar-foreground: 210 15% 20%;
+    --sidebar-primary: 0 45% 35%;
+    --sidebar-primary-foreground: 210 15% 95%;
+    --sidebar-accent: 210 10% 90%;
+    --sidebar-accent-foreground: 210 15% 20%;
+    --sidebar-border: 210 10% 80%;
+    --sidebar-ring: 0 45% 35%;
+  }
+
+  /* Dark mode — London at night */
+  .dark {
+    --background: 210 20% 10%; /* Underground charcoal */
+    --foreground: 210 15% 92%;
+
+    --card: 210 20% 12%;
+    --card-foreground: 210 15% 92%;
+
+    --popover: 210 20% 12%;
+    --popover-foreground: 210 15% 92%;
+
+    --primary: 0 50% 50%; /* Deep brick red */
+    --primary-foreground: 210 15% 95%;
+
+    --secondary: 195 25% 45%; /* Thames glow */
+    --secondary-foreground: 210 15% 95%;
+
+    --muted: 210 15% 20%;
+    --muted-foreground: 210 10% 65%;
+
+    --accent: 35 40% 55%; /* Brass highlight */
+    --accent-foreground: 210 20% 10%;
+
+    --destructive: 0 55% 40%;
+    --destructive-foreground: 210 15% 95%;
+
+    --border: 210 15% 25%;
+    --input: 210 15% 20%;
+    --ring: 35 40% 55%;
+
+    --sidebar-background: 210 20% 8%;
+    --sidebar-foreground: 210 15% 92%;
+    --sidebar-primary: 0 50% 50%;
+    --sidebar-primary-foreground: 210 15% 95%;
+    --sidebar-accent: 210 15% 18%;
+    --sidebar-accent-foreground: 210 15% 92%;
+    --sidebar-border: 210 15% 22%;
+    --sidebar-ring: 35 40% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading;
+  }
+}
