@@ -33,7 +33,7 @@ const JURY_INITIAL: JuryMember[] = [
     name: "Amrita Bose",
     title: "Editor",
     bio: "Award-winning editor focused on rhythm and emotional storytelling.",
-    image:"/coming.jpeg",
+    image: "/coming.jpeg",
   },
 ];
 
@@ -51,14 +51,16 @@ export default function Jury() {
           }
         });
       },
-      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
     );
-    document.querySelectorAll(".card-reveal, .featured-reveal").forEach((el) => io.observe(el));
+    document
+      .querySelectorAll(".card-reveal, .featured-reveal")
+      .forEach((el) => io.observe(el));
     return () => io.disconnect();
   }, []);
 
   return (
-    <div className="min-h-screen bg-primary text-primary-foreground relative overflow-x-hidden">
+    <div className="min-h-screen bg-[#F2F6F9] text-[#2E3A44] relative overflow-x-hidden">
       <style>{`
         /* --- General Page Layout --- */
         .page-inner {
@@ -78,18 +80,18 @@ export default function Jury() {
           width: 160%;
           height: 260px;
           pointer-events: none;
-          opacity: 0.07;
+          opacity: 0.1;
           z-index: 1;
         }
         .film-reel .strip {
           width: 300%;
           height: 100%;
           background-image: linear-gradient(90deg,
-            rgba(255,255,255,0.02) 0 4%,
-            rgba(0,0,0,0.12) 4% 6%,
-            rgba(255,255,255,0.02) 6% 10%,
-            rgba(0,0,0,0.06) 10% 12%,
-            rgba(255,255,255,0.02) 12% 100%);
+            rgba(101,9,1,0.06) 0 4%,
+            rgba(46,58,68,0.1) 4% 6%,
+            rgba(101,9,1,0.05) 6% 10%,
+            rgba(46,58,68,0.06) 10% 12%,
+            rgba(101,9,1,0.04) 12% 100%);
           background-size: 1200px 100%;
           animation: reelSlide 14s linear infinite;
         }
@@ -102,7 +104,7 @@ export default function Jury() {
           position: absolute;
           inset: 0;
           background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120"><filter id="n"><feTurbulence baseFrequency="0.9" numOctaves="1" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23n)" opacity="0.06"/></svg>');
-          opacity: 0.05;
+          opacity: 0.03;
           pointer-events: none;
           mix-blend-mode: overlay;
         }
@@ -121,11 +123,11 @@ export default function Jury() {
           letter-spacing: -0.02em;
           font-size: clamp(40px, 6vw, 90px);
           line-height: 0.95;
-          color: var(--primary-foreground, #fff);
+          color: #2E3A44;
           margin: 0 0 10px;
         }
         .hero p {
-          color: rgba(255,255,255,0.75);
+          color: rgba(46,58,68,0.85);
           margin-top: 6px;
           font-size: 1rem;
           max-width: 60ch;
@@ -145,9 +147,9 @@ export default function Jury() {
           position: relative;
           width: min(980px, 96%);
           border-radius: 20px;
-          background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));
-          border: 1px solid rgba(255,255,255,0.1);
-          box-shadow: 0 40px 130px rgba(0,0,0,0.65);
+          background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(242,246,249,0.92));
+          border: 1px solid rgba(101,9,1,0.18);
+          box-shadow: 0 24px 80px rgba(46,58,68,0.2);
           overflow: hidden;
           transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
           display: grid;
@@ -155,8 +157,8 @@ export default function Jury() {
         }
         .featured-card:hover {
           transform: translateY(-10px);
-          border-color: rgba(255,255,255,0.18);
-          box-shadow: 0 60px 160px rgba(0,0,0,0.75);
+          border-color: rgba(101,9,1,0.35);
+          box-shadow: 0 36px 100px rgba(46,58,68,0.28);
         }
         .featured-left {
           padding: 20px;
@@ -169,7 +171,7 @@ export default function Jury() {
           border-radius: 12px;
           overflow: hidden;
           background: #0c0707;
-          border: 1px solid rgba(255,255,255,0.06);
+          border: 1px solid rgba(101,9,1,0.2);
           box-shadow: inset 0 -12px 36px rgba(0,0,0,0.6);
           position: relative;
         }
@@ -189,20 +191,21 @@ export default function Jury() {
           padding: clamp(16px, 3vw, 28px);
           text-align: left;
           gap: 10px;
-          background: radial-gradient(1200px 300px at 0% 100%, rgba(0,0,0,0.45), transparent 70%);
+          background: radial-gradient(1200px 300px at 0% 100%, rgba(101,9,1,0.16), transparent 70%);
         }
         .featured-name {
           font-weight: 900;
           text-transform: uppercase;
           letter-spacing: 0.06em;
           font-size: clamp(20px, 3vw, 30px);
+          color: #650901;
         }
         .featured-title {
-          color: rgba(255,255,255,0.8);
+          color: rgba(46,58,68,0.82);
           font-size: clamp(14px, 2vw, 18px);
         }
         .featured-bio {
-          color: rgba(255,255,255,0.9);
+          color: rgba(46,58,68,0.92);
           font-size: clamp(14px, 2vw, 16px);
           margin-top: 6px;
           line-height: 1.5;
@@ -213,7 +216,7 @@ export default function Jury() {
           left: 6%;
           right: 6%;
           height: 16px;
-          background-image: radial-gradient(circle at 6px 6px, rgba(255,255,255,0.06) 0 32%, transparent 34%);
+          background-image: radial-gradient(circle at 6px 6px, rgba(101,9,1,0.15) 0 32%, transparent 34%);
           background-size: 28px 16px;
           background-repeat: repeat-x;
           opacity: 0.22;
@@ -258,15 +261,15 @@ export default function Jury() {
           height: 480px;
           width: 320px;
           border-radius: 20px;
-          background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));
-          border: 1px solid rgba(255,255,255,0.08);
+          background: linear-gradient(180deg, #720101, #650901);
+          border: 1px solid rgba(101,9,1,0.3);
           box-shadow: 0 24px 90px rgba(0,0,0,0.65);
           overflow: hidden;
           transition: all 0.3s ease;
         }
         .card:hover {
           transform: translateY(-10px);
-          border-color: rgba(255,255,255,0.14);
+          border-color: rgba(195,1,1,0.75);
           box-shadow: 0 40px 130px rgba(0,0,0,0.7);
         }
 
@@ -277,7 +280,7 @@ export default function Jury() {
           border-radius: 12px;
           overflow: hidden;
           background: #0c0707;
-          border: 1px solid rgba(255,255,255,0.04);
+          border: 1px solid rgba(242,246,249,0.18);
           box-shadow: inset 0 -12px 36px rgba(0,0,0,0.6);
           position: relative;
         }
@@ -297,7 +300,7 @@ export default function Jury() {
           left: 8%;
           right: 8%;
           height: 16px;
-          background-image: radial-gradient(circle at 6px 6px, rgba(255,255,255,0.05) 0 30%, transparent 32%);
+          background-image: radial-gradient(circle at 6px 6px, rgba(242,246,249,0.18) 0 30%, transparent 32%);
           background-size: 28px 16px;
           background-repeat: repeat-x;
           opacity: 0.18;
@@ -310,7 +313,7 @@ export default function Jury() {
           top: 8%;
           bottom: 8%;
           width: 26px;
-          background-image: radial-gradient(circle at 50% 6px, rgba(255,255,255,0.04) 0 28%, transparent 30%);
+          background-image: radial-gradient(circle at 50% 6px, rgba(242,246,249,0.18) 0 28%, transparent 30%);
           background-size: 16px 28px;
           background-repeat: repeat-y;
           opacity: 0.15;
@@ -328,10 +331,11 @@ export default function Jury() {
           text-transform: uppercase;
           font-size: 1rem;
           letter-spacing: 0.05em;
+          color: #F2F6F9;
         }
         .meta .title {
           font-size: 0.9rem;
-          color: rgba(255,255,255,0.7);
+          color: rgba(242,246,249,0.82);
           margin-top: 4px;
         }
 
@@ -341,7 +345,7 @@ export default function Jury() {
           left: 0;
           right: 0;
           padding: 18px;
-          background: linear-gradient(180deg, rgba(0,0,0,0.0), rgba(0,0,0,0.7));
+          background: linear-gradient(180deg, rgba(114,1,1,0.0), rgba(46,58,68,0.78));
           transform: translateY(100%);
           transition: transform 0.4s ease;
         }
@@ -350,17 +354,9 @@ export default function Jury() {
         }
         .bio p {
           font-size: 0.9rem;
-          color: rgba(255,255,255,0.9);
+          color: rgba(242,246,249,0.95);
           text-align: center;
           margin: 0;
-        }
-
-        /* --- Footer Color --- */
-        footer {
-          background-color: #d8744b !important;
-          color: #fff !important;
-          padding-top: 40px !important;
-          padding-bottom: 40px !important;
         }
 
         @media (max-width: 1020px) {
@@ -374,7 +370,9 @@ export default function Jury() {
       `}</style>
 
       {/* Cinematic Layers */}
-      <div className="film-reel"><div className="strip" /></div>
+      <div className="film-reel">
+        <div className="strip" />
+      </div>
       <div className="grain" />
 
       <Navigation />
@@ -396,10 +394,29 @@ export default function Jury() {
                 {HEAD?.image ? (
                   <img src={HEAD.image} alt={HEAD?.name || "Head Jury"} />
                 ) : (
-                  <div style={{ display: "grid", placeItems: "center", height: "100%", color: "#fff" }}>
+                  <div
+                    style={{
+                      display: "grid",
+                      placeItems: "center",
+                      height: "100%",
+                      color: "#fff",
+                    }}
+                  >
                     <svg width="72" height="72" viewBox="0 0 24 24" fill="none">
-                      <path d="M12 12a4 4 0 100-8 4 4 0 000 8z" stroke="white" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-                      <path d="M3 21a9 9 0 0118 0" stroke="white" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+                      <path
+                        d="M12 12a4 4 0 100-8 4 4 0 000 8z"
+                        stroke="white"
+                        strokeWidth="1.2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="M3 21a9 9 0 0118 0"
+                        stroke="white"
+                        strokeWidth="1.2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
                     </svg>
                   </div>
                 )}
@@ -428,10 +445,34 @@ export default function Jury() {
                   {m.image ? (
                     <img src={m.image} alt={m.name} />
                   ) : (
-                    <div style={{ display: "grid", placeItems: "center", height: "100%", color: "#fff" }}>
-                      <svg width="56" height="56" viewBox="0 0 24 24" fill="none">
-                        <path d="M12 12a4 4 0 100-8 4 4 0 000 8z" stroke="white" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-                        <path d="M3 21a9 9 0 0118 0" stroke="white" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+                    <div
+                      style={{
+                        display: "grid",
+                        placeItems: "center",
+                        height: "100%",
+                        color: "#fff",
+                      }}
+                    >
+                      <svg
+                        width="56"
+                        height="56"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                      >
+                        <path
+                          d="M12 12a4 4 0 100-8 4 4 0 000 8z"
+                          stroke="white"
+                          strokeWidth="1.2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                        <path
+                          d="M3 21a9 9 0 0118 0"
+                          stroke="white"
+                          strokeWidth="1.2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
                       </svg>
                     </div>
                   )}
