@@ -5,21 +5,23 @@ import { Link } from "react-router-dom";
 import { useMemo, useState } from "react";
 import { useEffect } from "react";
 // import images from src assets (use forward-slash imports, not backslash strings)
-import kolkata1 from "@/assets/pic1.jpg";
-import kolkata2 from "@/assets/pic2.jpg";
-import kolkata3 from "@/assets/pic3.jpg";
-import kolkata4 from "@/assets/pic4.jpg";
-import kolkata5 from "@/assets/pic5.jpg";
-import kolkata6 from "@/assets/pic6.jpg";
+import london1 from "@/assets/london/london-1.jpg";
+import london2 from "@/assets/london/london-2.jpg";
+import london3 from "@/assets/london/london-3.jpg";
+import london4 from "@/assets/london/london-4.jpg";
+import london5 from "@/assets/london/london-5.jpg";
+import london6 from "@/assets/london/london-6.jpg";
 import kolkataBg from "@/assets/kolkata.png";
+import { useLoaderDone } from "@/context/loaderContext";
+import { motion } from "framer-motion";
 
 const STRIP_IMAGES: string[] = [
-  kolkata1,
-  kolkata2,
-  kolkata3,
-  kolkata4,
-  kolkata5,
-  kolkata6,
+  london1,
+  london2,
+  london3,
+  london4,
+  london5,
+  london6,
 ];
 
 function ScanButton({
@@ -559,6 +561,8 @@ function EventFlipTimeline({ items }: { items: TimelineEvent[] }) {
 }
 
 const Index = () => {
+  const isLoaderDone = useLoaderDone();
+
   // keep trailer props consistent across mobile/desktop instances
   const TRAILER = {
     youtubeUrl: "https://youtu.be/Tm_26UBOIXI?si=w4emguyPnqyFOJPe", // <— replace with your real link
@@ -687,20 +691,40 @@ const Index = () => {
       <header className="bg-[#F2F6F9]">
         <div className="container mx-auto px-4 py-10 md:py-14">
           {/* 2-column hero: left CTAs, right trailer */}
-          <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-start">
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8 h-full items-start">
             {/* LEFT COLUMN */}
             <div>
-              <h1
+              <motion.h1
                 className="text-3xl md:text-6xl font-heading font-black 
               leading-tight tracking-tight text-[#2E3A44]"
+                initial={{ opacity: 0, y: 28 }}
+                animate={
+                  isLoaderDone ? { opacity: 1, y: 0 } : { opacity: 0, y: 28 }
+                }
+                transition={{ duration: 0.5, delay: 0.6 }}
               >
                 CONSORTIUM OF FILM & CONTENT CREATORS FESTIVAL
-                <span className="block text-2xl md:text-5xl text-[#c30101]">
+                <motion.span
+                  className="block text-2xl md:text-5xl 
+                text-[#c30101]"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={
+                    isLoaderDone ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+                  }
+                  transition={{ duration: 0.5, delay: 1.1 }}
+                >
                   LONDON CHAPTER
-                </span>
-              </h1>
+                </motion.span>
+              </motion.h1>
 
-              <p className="mt-4 text-[#2E3A44]/85 max-w-2xl text-sm md:text-base font-body">
+              <motion.p
+                className="mt-4 text-[#2E3A44]/85 max-w-2xl text-sm md:text-base font-body"
+                initial={{ opacity: 0, y: 20 }}
+                animate={
+                  isLoaderDone ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+                }
+                transition={{ duration: 0.5, delay: 1.3 }}
+              >
                 In today's interconnected world, storytelling is a bridge that
                 unites diverse cultures and ideas. The London Film, Content
                 Creators Festival & Award Ceremony 2026 celebrates the power of
@@ -708,10 +732,17 @@ const Index = () => {
                 global borders. Our mission is to honor the art of filmmaking
                 and digital content creation, showcasing exceptional talent and
                 inspiring innovation in the creative industry.
-              </p>
+              </motion.p>
 
               {/* MOBILE-ONLY trailer above CTAs */}
-              <div className="md:hidden mt-6">
+              <motion.div
+                className="md:hidden mt-6"
+                initial={{ opacity: 0, y: 20 }}
+                animate={
+                  isLoaderDone ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+                }
+                transition={{ duration: 0.5, delay: 1.4 }}
+              >
                 <TrailerHolder
                   youtubeUrl="https://youtu.be/Tm_26UBOIXI?si=w4emguyPnqyFOJPe"
                   poster="/trailer.png"
@@ -719,14 +750,28 @@ const Index = () => {
                   overlayTop="OFFICIAL TRAILER"
                   overlayBottom="2026"
                 />
-              </div>
+              </motion.div>
 
               {/* Venue + CTAs */}
-              <div className="mt-8 flex flex-col items-start gap-4">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={
+                  isLoaderDone ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+                }
+                transition={{ duration: 0.5, delay: 1.4 }}
+                className="mt-8 flex flex-col items-start gap-4"
+              >
                 <VenueBox />
 
                 {/* CTA row */}
-                <div className="flex flex-wrap items-start justify-start gap-3 mt-2">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={
+                    isLoaderDone ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+                  }
+                  transition={{ duration: 0.5, delay: 1.4 }}
+                  className="flex flex-wrap items-start justify-start gap-3 mt-2"
+                >
                   {/* Register Now */}
                   <ScanButton
                     to="/register"
@@ -762,23 +807,29 @@ const Index = () => {
                   >
                     PREVIOUS EDITIONS
                   </a>
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
               {/* closes .mt-8 wrapper */}
             </div>
             {/* closes LEFT COLUMN */}
 
             {/* RIGHT COLUMN (desktop trailer) */}
-            {/* RIGHT COLUMN (desktop trailer) */}
-            <div className="hidden md:block md:mt-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={
+                isLoaderDone ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+              }
+              transition={{ duration: 0.5, delay: 1.4 }}
+              className="hidden md:flex md:justify-center md:items-center h-full w-full"
+            >
               <TrailerHolder
-                youtubeUrl="https://youtu.be/Tm_26UBOIXI?si=w4emguyPnqyFOJPe"
+                youtubeUrl=""
                 poster="/trailer.png"
                 title="Festival Trailer"
                 overlayTop="TEASER"
                 overlayBottom="2026"
               />
-            </div>
+            </motion.div>
           </div>
           {/* closes grid */}
 

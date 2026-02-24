@@ -1,6 +1,8 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useContext, useEffect, useMemo, useRef, useState } from "react";
+import { LoaderContext } from "@/context/loaderContext";
 
 const Loader = () => {
+  const { markLoaderDone } = useContext(LoaderContext);
   const [visible, setVisible] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
   const [showSkip, setShowSkip] = useState(false);
@@ -25,6 +27,7 @@ const Loader = () => {
 
   const hideLoader = () => {
     const el = document.getElementById("loader-root");
+    markLoaderDone();
     if (!el) return setVisible(false);
 
     el.style.transition = "opacity .6s ease";

@@ -15,37 +15,40 @@ import Auth from "./pages/auth";
 
 // ✅ IMPORT LOADER
 import Loader from "@/components/loader";
+import { LoaderProvider } from "@/context/loaderContext";
 import AdminPanel from "./pages/AdminPanel";
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      {/* ✅ Global Toast Providers */}
-      <Toaster />
-      <Sonner />
+    <LoaderProvider>
+      <TooltipProvider>
+        {/* ✅ Global Toast Providers */}
+        <Toaster />
+        <Sonner />
 
-      {/* ✅ TOP-LEVEL LOADER */}
-      <Loader />
+        {/* ✅ TOP-LEVEL LOADER */}
+        <Loader />
 
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/rules" element={<Rules />} />
-          <Route path="/jury" element={<Jury />} />
-          <Route path="/payment" element={<PaymentGateway />} />
-          <Route path="/auth" element={<Auth />} />
-          <Route path="/visitor" element={<Visitor />} />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/rules" element={<Rules />} />
+            <Route path="/jury" element={<Jury />} />
+            <Route path="/payment" element={<PaymentGateway />} />
+            <Route path="/auth" element={<Auth />} />
+            <Route path="/visitor" element={<Visitor />} />
 
-          <Route path="/AdminPanel" element={<AdminPanel />} />
+            <Route path="/AdminPanel" element={<AdminPanel />} />
 
-          {/* always last */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
+            {/* always last */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </TooltipProvider>
+    </LoaderProvider>
   </QueryClientProvider>
 );
 
