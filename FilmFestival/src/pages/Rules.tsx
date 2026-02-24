@@ -15,7 +15,7 @@ const Rules: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-primary text-primary-foreground font-body">
+    <div className="min-h-screen bg-[#F2F6F9] text-[#2E3A44] font-body">
       {/* Inline styles for filmic effects */}
       <style>{`
         /* subtle paper / grain overlay (if you have a grain image, place at /assets/grain.png) */
@@ -29,29 +29,29 @@ const Rules: React.FC = () => {
           transition: transform .22s ease, box-shadow .22s ease, color .18s ease;
           transform-origin: center;
         }
-        .tab-btn:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(0,0,0,0.5); color: #ffd9a3; }
+        .tab-btn:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(46,58,68,0.25); color: #c30101; }
 
         /* rule card hover filmic */
         .rule-row { transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease; }
         .rule-row:hover {
           transform: translateY(-6px);
-          box-shadow: 0 18px 40px rgba(0,0,0,0.6);
-          background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.04));
+          box-shadow: 0 14px 32px rgba(46,58,68,0.2);
+          background: linear-gradient(180deg, rgba(101,9,1,0.05), rgba(46,58,68,0.04));
         }
 
         /* thin divider lines */
-        .sep-line { height:1px; background: rgba(255,255,255,0.04); margin: 14px 0; }
+        .sep-line { height:1px; background: rgba(46,58,68,0.15); margin: 14px 0; }
 
         /* compact list styling for multi-column */
         .compact-ol { columns: 2; column-gap: 28px; }
         @media (max-width: 900px) { .compact-ol { columns: 1; } }
 
         /* deadline accent */
-        .deadline { color: #ffd9a3; font-weight:700; }
+        .deadline { color: #c30101; font-weight:700; }
 
         /* custom scrollbar lightly visible on small devices only */
         .scrollbar::-webkit-scrollbar { width: 8px; }
-        .scrollbar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.06); border-radius: 6px; }
+        .scrollbar::-webkit-scrollbar-thumb { background: rgba(101,9,1,0.2); border-radius: 6px; }
 
         /* header Bebas look (if Bebas loaded in tailwind config) */
         .heading-bebas { font-family: 'Bebas Neue', sans-serif; letter-spacing: .02em; }
@@ -63,10 +63,10 @@ const Rules: React.FC = () => {
         <div className="container mx-auto px-4 max-w-5xl">
           {/* Heading */}
           <header className="text-center mb-6">
-            <h1 className="text-5xl md:text-6xl heading-bebas text-primary-foreground font-black uppercase tracking-tight">
+            <h1 className="text-5xl md:text-6xl heading-bebas text-[#2E3A44] font-black uppercase tracking-tight">
               Rules &amp; Regulations
             </h1>
-            <p className="mt-3 text-sm md:text-base text-primary-foreground/85 max-w-2xl mx-auto">
+            <p className="mt-3 text-sm md:text-base text-[#2E3A44]/85 max-w-2xl mx-auto">
               CFCCF 2026 · Kolkata, India — organised by IEM – UEM Group, SMART
               Society (USA) &amp; Forum for Film Studies and Allied Arts
             </p>
@@ -74,14 +74,14 @@ const Rules: React.FC = () => {
 
           {/* Tabs centered under heading */}
           <div className="flex justify-center mb-8">
-            <div className="inline-flex bg-primary p-1 rounded-full border border-primary-foreground/30 shadow-lg">
+            <div className="inline-flex bg-[#650901] p-1 rounded-full border border-[#650901]/30 shadow-lg">
               <button
                 onClick={() => setTab("general")}
                 className={[
                   "tab-btn px-6 py-2 rounded-full font-heading uppercase text-sm md:text-base",
                   tab === "general"
-                    ? "bg-card text-primary shadow-md"
-                    : "text-primary-foreground/90 hover:text-ring bg-transparent",
+                    ? "bg-[#F2F6F9] text-[#650901] shadow-md"
+                    : "text-[#F2F6F9]/90 hover:text-white bg-transparent",
                 ].join(" ")}
               >
                 General Rules
@@ -92,8 +92,8 @@ const Rules: React.FC = () => {
                 className={[
                   "tab-btn px-6 py-2 rounded-full font-heading uppercase text-sm md:text-base",
                   tab === "competitive"
-                    ? "bg-card text-primary shadow-md"
-                    : "text-primary-foreground/90 hover:text-ring bg-transparent",
+                    ? "bg-[#F2F6F9] text-[#650901] shadow-md"
+                    : "text-[#F2F6F9]/90 hover:text-white bg-transparent",
                 ].join(" ")}
               >
                 Competitive Section
@@ -102,16 +102,16 @@ const Rules: React.FC = () => {
           </div>
 
           {/* Card that contains the tab content — compact, filmic */}
-          <section className="bg-primary-foreground/5 rounded-2xl p-6 md:p-8 border border-primary-foreground/30 shadow-2xl grain-overlay">
+          <section className="bg-white/80 rounded-2xl p-6 md:p-8 border border-[#650901]/20 shadow-2xl grain-overlay">
             <div className="flex flex-col md:flex-row gap-6">
               {/* Left: rules content (wide) */}
               <div className="flex-1">
-                <div className="text-sm text-[#f8eadd]/90 leading-relaxed mb-4">
-                  <strong className="text-ring">CFCCF 2026</strong> — This Film
-                  Festival aims at creating a platform for better understanding
-                  of the films of the past and present in an atmosphere of
-                  appreciation and to move towards excellence of the motion
-                  picture art and industry.
+                <div className="text-sm text-[#2E3A44]/90 leading-relaxed mb-4">
+                  <strong className="text-[#650901]">CFCCF 2026</strong> — This
+                  Film Festival aims at creating a platform for better
+                  understanding of the films of the past and present in an
+                  atmosphere of appreciation and to move towards excellence of
+                  the motion picture art and industry.
                 </div>
 
                 <div className="sep-line" />
@@ -119,11 +119,11 @@ const Rules: React.FC = () => {
                 {/* Tab contents compact and split into columns so user doesn't need to scroll */}
                 {tab === "general" ? (
                   <>
-                    <h3 className="text-xl md:text-2xl heading-bebas text-ring font-black uppercase mb-3">
+                    <h3 className="text-xl md:text-2xl heading-bebas text-[#650901] font-black uppercase mb-3">
                       A. General Rules
                     </h3>
 
-                    <ol className="compact-ol list-decimal pl-6 text-sm md:text-base text-primary-foreground/90">
+                    <ol className="compact-ol list-decimal pl-6 text-sm md:text-base text-[#2E3A44]/90">
                       <li className="rule-row p-2 rounded-md mb-2">
                         Only selected films will be intimated by email. All
                         lists will be available on the website from{" "}
@@ -158,11 +158,11 @@ const Rules: React.FC = () => {
                   </>
                 ) : (
                   <>
-                    <h3 className="text-xl md:text-2xl heading-bebas text-ring font-black uppercase mb-3">
+                    <h3 className="text-xl md:text-2xl heading-bebas text-[#650901] font-black uppercase mb-3">
                       B. Competitive Section
                     </h3>
 
-                    <ol className="compact-ol list-decimal pl-6 text-sm md:text-base text-primary-foreground/90">
+                    <ol className="compact-ol list-decimal pl-6 text-sm md:text-base text-[#2E3A44]/90">
                       <li className="rule-row p-2 rounded-md mb-2">
                         Short Films must be fiction films. Duration will not be
                         more than 30 minutes.
@@ -186,7 +186,7 @@ const Rules: React.FC = () => {
                         Google Drive) of your film preferably in .mp4 format for
                         selection. English subtitles are strictly required. Send
                         password, if any.
-                        <div className="mt-2 ml-2 text-xs text-primary-foreground/70">
+                        <div className="mt-2 ml-2 text-xs text-[#2E3A44]/70">
                           Secondary option: Pen Drive / DVD with English
                           subtitles; label with name, contact number &amp;
                           address and courier to the festival office.
@@ -241,14 +241,14 @@ const Rules: React.FC = () => {
               </div>
 
               {/* Right: deadlines + CTA */}
-              <aside className="w-full md:w-80 flex-shrink-0 bg-primary-foreground/10 rounded-xl p-4 border border-primary-foreground/25 shadow-inner">
+              <aside className="w-full md:w-80 flex-shrink-0 bg-[#650901]/5 rounded-xl p-4 border border-[#650901]/25 shadow-inner">
                 <div className="mb-4">
-                  <h4 className="text-sm text-ring uppercase font-heading tracking-wider">
+                  <h4 className="text-sm text-[#650901] uppercase font-heading tracking-wider">
                     Key Dates
                   </h4>
                   <div className="mt-3 space-y-3">
-                    <div className="bg-primary/50 p-3 rounded-md">
-                      <div className="text-xs text-primary-foreground/80">
+                    <div className="bg-[#650901] p-3 rounded-md">
+                      <div className="text-xs text-[#F2F6F9]/80">
                         Submission Deadline
                       </div>
                       <div className="text-lg font-black deadline">
@@ -256,20 +256,20 @@ const Rules: React.FC = () => {
                       </div>
                     </div>
 
-                    <div className="bg-primary/50 p-3 rounded-md">
-                      <div className="text-xs text-primary-foreground/80">
+                    <div className="bg-[#650901] p-3 rounded-md">
+                      <div className="text-xs text-[#F2F6F9]/80">
                         Selection Lists Live
                       </div>
-                      <div className="text-lg font-black">
+                      <div className="text-lg font-black text-[#F2F6F9]">
                         30th November 2025
                       </div>
                     </div>
 
-                    <div className="bg-primary/50 p-3 rounded-md">
-                      <div className="text-xs text-primary-foreground/80">
+                    <div className="bg-[#650901] p-3 rounded-md">
+                      <div className="text-xs text-[#F2F6F9]/80">
                         Festival Date
                       </div>
-                      <div className="text-lg font-black">
+                      <div className="text-lg font-black text-[#F2F6F9]">
                         10th January 2026
                       </div>
                     </div>
@@ -280,12 +280,12 @@ const Rules: React.FC = () => {
 
                 {/* Register CTA matching registration page */}
                 <Link to="/register" className="block">
-                  <button className="w-full bg-card text-primary px-4 py-3 rounded-full font-heading uppercase tracking-wide text-sm hover:scale-[1.02] transition shadow-md">
+                  <button className="w-full bg-[#650901] text-[#F2F6F9] px-4 py-3 rounded-full font-heading uppercase tracking-wide text-sm hover:scale-[1.02] hover:bg-[#c30101] transition shadow-md">
                     Register Now
                   </button>
                 </Link>
 
-                <div className="mt-4 text-xs text-primary-foreground/70">
+                <div className="mt-4 text-xs text-[#2E3A44]/70">
                   Provide preview link (Video / Google Drive). Offline
                   submissions (DVD / Pen Drive) accepted as secondary method.
                 </div>
