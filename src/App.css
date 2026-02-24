@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* #root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+} */
+
+/* card enter animation */
+.card-anim,
+.timeline-item {
+  transform: translateY(18px) scale(0.995);
+  opacity: 0;
+  transition: transform 650ms cubic-bezier(.2, .9, .2, 1), opacity 650ms ease;
+}
+
+.card-anim.in-view,
+.timeline-item.in-view {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+/* stagger children */
+.jury-grid .jury-card {
+  transition-delay: calc(var(--idx) * 90ms);
+}
+
+.timeline-item {
+  transition-delay: calc(var(--idx) * 80ms);
+}
+
+/* hover lift */
+.jury-card:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.26);
+}
+
+/* timeline connector animation */
+.timeline-wrap {
+  position: relative;
+  padding: 2rem 0;
+}
+
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 32px;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 0;
+  border-radius: 6px;
+  background: linear-gradient(180deg, rgba(255, 138, 101, 0.95), rgba(79, 17, 17, 0.9));
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18), inset 0 0 10px rgba(255, 255, 255, 0.02);
+  transition: height 900ms cubic-bezier(.16, .84, .24, 1);
+}
+
+/* when in view, draw the line */
+.timeline-in-view .timeline-line {
+  height: calc(100% - 64px);
+}
+
+/* timeline point */
+.timeline-point {
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: #fff;
+  display: inline-block;
+  transform: scale(0.7);
+  transition: transform 400ms ease, box-shadow 300ms ease;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.14);
+}
+
+.timeline-item.in-view .timeline-point {
+  transform: scale(1);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+}
+
+/* subtle pulse for active points */
+@keyframes pointPulse {
+  0% {
+    box-shadow: 0 6px 18px rgba(255, 138, 101, 0.12);
+    transform: scale(1);
+  }
+
+  50% {
+    box-shadow: 0 18px 44px rgba(255, 138, 101, 0.14);
+    transform: scale(1.06);
+  }
+
+  100% {
+    box-shadow: 0 6px 18px rgba(255, 138, 101, 0.12);
+    transform: scale(1);
+  }
+}
+
+.timeline-item.in-view .timeline-point {
+  animation: pointPulse 1800ms ease-in-out infinite;
+}
+
+/* small card style tweak */
+.timeline-item .inline-block {
+  transition: transform 350ms ease, box-shadow 350ms ease;
+}
+
+.timeline-item.in-view .inline-block {
+  transform: translateY(0);
+}
+
+/* responsive adjustments */
+@media (max-width: 767px) {
+  .timeline-line {
+    left: 28px;
+    transform: none;
+  }
+
+  .timeline-item {
+    padding-left: 56px;
+  }
+
+  .timeline-item .timeline-point {
+    position: absolute;
+    left: 18px;
+    top: 18px;
+  }
+}
+
+
